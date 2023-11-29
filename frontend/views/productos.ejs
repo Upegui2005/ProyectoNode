@@ -7,7 +7,26 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
     </section>
-    <section class="mt-3">
-        
-    </section>
+    <div class="container">
+        <section class="mt-3 mx-auto">
+            <div class="row">
+                <% cat.forEach(products => { %>
+                    <div class="col-3 mb-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="<%= products.image %>" class="card-img-top mx-auto my-auto" alt="...">
+                            <hr>
+                            <div class="card-body">
+                            <h5 class="card-title"><%= products.title %></h5>
+                            <h6 class="card-text">$<%= products.price %></h6>
+                            <p class="card-text"><%= products.category %></p>
+                            <button class="btn btn-outline-dark" onclick="carrito(<%= products.id %>)">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                <%}) %>
+            </div>
+        </section>
+    </div>
 </main>
+
+<script src="js/carrito.js"></script>

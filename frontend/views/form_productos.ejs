@@ -1,0 +1,33 @@
+<%- include ('./base/header') %>
+
+<main>
+    <section class="container mt-3">
+        <div class="mx-auto">
+            <h3 class="mb-3 text-center">Registro Producto</h3>
+            <form action="/newProduct" method="post">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="title">Nombre:</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Nombre" aria-describedby="title" name="title">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="price">
+                    <span class="input-group-text">.00</span>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="category">Categoria:</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="category" name="category">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Descripcion:</span>
+                    <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Imagen:</label>
+                    <input class="form-control" type="file" id="image" name="image">
+                </div>
+                <button class="btn btn-outline-dark" type="submit">Registrar</button>                   
+            </form>
+        </div>
+    </section>
+</main>

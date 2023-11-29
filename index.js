@@ -5,17 +5,20 @@ const app = express();
 const path = require('path');
 require('dotenv').config(); 
 
-const { connect } = require('./db/database');
+const { connect } = require('./backend/db/database');
 
-app.set('port', process.env.PORT || 9999);
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors({origin: 'http://localhost:4200'}));
+app.use(express.json());
+app.use(express.urlencoded({extended: true}))
 
-app.use('../frontend/assets', express.static(path.join(__dirname, 'assets')))
+app.set('port', process.env.PORT || 9999);
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, './frontend/views'))
 
-app.use('', require('./routes/route'))
+app.use(express.static('./frontend/assets/'))
+app.use('', require('./backend/routes/route'))
 
 async function startServer() {
     try {
