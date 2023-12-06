@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const {hombre} = require('../controllers/controllers')
+
 
 router.get('/', (req, res) => {
     fetch('https://fakestoreapi.com/products?limit=3')
     .then(res => res.json())
     .then(destacado => {
-        res.render('index', {cards: destacado})
+       res.render('index', {cards: destacado, men: hombre})
     })
+
 })
 router.get('/productos', (req, res) => {
     fetch('https://fakestoreapi.com/products')
